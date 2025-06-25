@@ -160,7 +160,7 @@ router.post("/submit_result", async (req, res) => {
         return res.status(500).json({ message: "Invalid service details from Consul" });
       }
   
-      const targetUrl = `http://${ServiceAddress}:${ServicePort}/results/post-result`;
+      const targetUrl = `http://${ServiceAddress}/results/post-result`;
     //   console.log(`🚀 Sending request to: ${targetUrl}`);
   
       const response = await axios.post(targetUrl, {
@@ -244,7 +244,7 @@ router.post("/post_data_analytics", async (req, res) => {
       return res.status(500).json({ message: "Invalid service details from Consul" });
     }
 
-    const targetUrl = `http://${ServiceAddress}:${ServicePort}/individual/post-individual`;
+    const targetUrl = `http://${ServiceAddress}/individual/post-individual`;
 
     // 🧨 THIS IS THE FIX: send FLAT body, not an array
     const payload = {
